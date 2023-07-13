@@ -1,0 +1,54 @@
+###############
+## ~/.bashrc ##
+###############
+
+## If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# XDG Base Directory global variables
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+mkdir -p "$XDG_STATE_HOME"/bash
+export HISTFILE="$XDG_STATE_HOME"/bash/history
+
+# I want a colorful `ls`
+eval "$(dircolors)"
+
+# Initialization of zoxide
+if command -v zoxide &> /dev/null
+then
+    eval "$(zoxide init bash)"
+fi
+
+# glow completion for bash
+if command -v glow &> /dev/null
+then
+    eval "$(glow completion bash)"
+fi
+
+## Bash functions (https://wiki.archlinux.org/title/Bash/Functions)
+# cd and ls in one
+cl() {
+	local dir="$1"
+	local dir="${dir:=$HOME}"
+	if [[ -d "$dir" ]]; then
+		cd "$dir" >/dev/null; ls --color=auto
+	else
+		echo "bash: cl: $dir: Directory not found"
+	fi
+}
+
+## Source the ~/.aliases file
+if [[ -f ~/.aliases ]]; then
+	source ~/.aliases
+fi
+
+## Bash prompt
+PS1='[\u@\h \W]\$ '
+
+# >>>> Vagrant command completion (start)
+. /opt/vagrant/embedded/gems/gems/vagrant-2.3.6/contrib/bash/completion.sh
+# <<<<  Vagrant command completion (end)
