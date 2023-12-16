@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/zak/dotfiles-with-ansible/xdg-config-home'
+let g:netrw_dirhist_5='/home/zak/.config/sway'
+let g:netrw_dirhist_4='/home/zak/.config'
+let g:netrw_dirhist_3='/home/zak/.config/sway'
+let g:netrw_dirhist_2='/home/zak/repos/leda/R13-01-Rot-AVL'
+let g:netrw_dirhist_1='/home/zak'
+let g:netrw_dirhist_0='/home/zak/repos/2023.1-EP01-T1-G15/.git'
+let g:netrw_dirhist_9='/home/zak'
+let g:netrw_dirhist_8='/home/zak/repos/leda/.git'
+let g:netrw_dirhist_7='/home/zak/repos/lp2/lab04/src/MrBet'
